@@ -13,7 +13,6 @@ pipeline {
         stage('checkout') {
             steps {
                  script{
-                        sh 'git clone https://github.com/Mustak-Ahmed/terraform_Jenkins.git'
                         sh 'ls'
                     }
                 }
