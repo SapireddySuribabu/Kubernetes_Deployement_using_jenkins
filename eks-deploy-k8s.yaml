@@ -19,7 +19,7 @@ spec:
         image: 879580385544.dkr.ecr.ap-south-1.amazonaws.com/jenkins-ecr:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 8085
+        - containerPort: 5000
           name: http
           protocol: TCP
 # service type loadbalancer       
@@ -36,7 +36,7 @@ spec:
   - name: http
     port: 80
     protocol: TCP
-    targetPort: 8085
+    targetPort: 5000
   type: LoadBalancer
   selector:
     app: flask-app
