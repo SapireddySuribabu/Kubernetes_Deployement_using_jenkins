@@ -5,10 +5,10 @@ pipeline {
         stage('ecr push') {
             steps {     
 		    sh 'aws ecr get-login-password --region ap-south-1 | sudo docker login --username AWS --password-stdin 184053799244.dkr.ecr.ap-south-1.amazonaws.com'
-	        sh 'sudo docker build -t jenkins-ecr:v${BUILD_NUMBER} -t nikki8:latest .'
-	        sh 'sudo docker tag jenkins-ecr:v${BUILD_NUMBER} 184053799244.dkr.ecr.ap-south-1.amazonaws.com/nikki8:v${BUILD_NUMBER}'
-		    sh 'sudo docker tag jenkins-ecr:v${BUILD_NUMBER} 184053799244.dkr.ecr.ap-south-1.amazonaws.com/nikki8:latest'
-	        sh 'sudo docker push 184053799244.dkr.ecr.ap-south-1.amazonaws.com/jenkins-ecr:v${BUILD_NUMBER}'
+	        sh 'sudo docker build -t nikki8 .'
+	        sh 'sudo docker tag nikki8 184053799244.dkr.ecr.ap-south-1.amazonaws.com/nikki8:latest'
+		    sh 'sudo docker tag nikki8 184053799244.dkr.ecr.ap-south-1.amazonaws.com/nikki8:latest'
+	        sh 'sudo docker push 184053799244.dkr.ecr.ap-south-1.amazonaws.com/nikki8:latest'
 		    sh 'sudo docker push 184053799244.dkr.ecr.ap-south-1.amazonaws.com/nikki8:latest'
             }
         }
